@@ -27,8 +27,14 @@ class ListItemsPage:
 
     def obtener_resultados(self):
         articulo = []
+        precio = []
 
         for i in range(5):
-            article_name = self.driver.find_element_by_xpath(f'//*[@id="root-app"]/div/div[1]/section/ol/li[{i + 1}]/div/div/div[2]/div[1]/a/h2').text
-            articulo.append(article_name)
+            nombre_articulo = self.driver.find_element_by_xpath(f'//*[@id="root-app"]/div/div[1]/section/ol/li[{i + 1}]/div/div/div[2]/div[1]/a/h2').text
+            articulo.append(nombre_articulo)
+            precio_articulo = self.driver.find_element_by_xpath(f'//*[@id="root-app"]/div/div[1]/section/ol/li[{i + 1}]/div/div/div[2]/div[2]/div[1]/div/div/div/span[1]/span[2]').text
+            precio.append(precio_articulo)
         print(articulo)
+        #print(precio)
+
+        return articulo
